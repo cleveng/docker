@@ -1,0 +1,12 @@
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    restart: no
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: 'MssqlPass123'
+      MSSQL_AGENT_ENABLED: 'true'
+    ports:
+      - 1433:1433
+    volumes:
+      - ./db:/var/opt/mssql
