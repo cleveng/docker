@@ -1,0 +1,12 @@
+services:
+  rdb:
+    image: redis
+    restart: always
+    environment:
+      - REDIS_PASSWORD=
+      - REDIS_PORT=6379
+      - REDIS_DATABASES=16
+    ports:
+        - '6379:6379'
+    volumes:
+      - ./data:/root/redis

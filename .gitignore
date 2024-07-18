@@ -120,6 +120,3 @@ Temporary Items
 .apdisk
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,jetbrains+all
-
-# docker
-db
