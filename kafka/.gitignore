@@ -1,0 +1,5 @@
+zookeeper_data/*
+kafka_data/*
+
+!zookeeper_data
+!kafka_data

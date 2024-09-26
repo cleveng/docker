@@ -6,6 +6,8 @@ services:
       ACCEPT_EULA: 'Y'
       SA_PASSWORD: 'MssqlPass123'
       MSSQL_AGENT_ENABLED: 'true'
+      MSSQL_USER: 'SA'
+      MSSQL_PID: 'Developer'
     ports:
       - 1433:1433
     volumes:
