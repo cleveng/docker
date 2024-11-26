@@ -1,0 +1,11 @@
+services:
+  openresty:
+    image: openresty/openresty:latest
+    hostname: openresty
+    container_name: openresty
+    restart: always
+    volumes:
+      - ./nginx/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
