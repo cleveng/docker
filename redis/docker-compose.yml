@@ -9,4 +9,4 @@ services:
     ports:
         - '6379:6379'
     volumes:
-      - ./data:/root/redis
+      - ./db:/root/redis
