@@ -1,0 +1,19 @@
+bindPort = 7000
+auth.token = "xxxxx"
+
+log.to = "/usr/local/frps/frps.log"
+log.level = "info"
+
+# web 页面配置
+# 默认为 127.0.0.1，如果需要公网访问，需要修改为 0.0.0.0；
+# 端口号可以改成自定义端口号，如 27500
+webServer.addr = "0.0.0.0" # 公网访问
+webServer.port = 6443 # 端口号
+
+# dashboard 用户名密码，可选，默认为空
+webServer.user = "xxxx"
+webServer.password = "xxxxx"
+
+vhostHTTPPort = 5480 # 80转发端口
+vhostHTTPSPort = 5443 # 443转发端口
+subDomainHost = "test.com" # 二级域名

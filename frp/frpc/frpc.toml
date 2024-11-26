@@ -1,0 +1,24 @@
+serverAddr = "8.8.8.8" # 对应的ip地址
+serverPort = 7000 # 对应的端口号
+
+auth.method = "token" # 默认token
+auth.token = "" # 对应的token
+
+log.to = "./frpc.log"
+log.level = "info"
+
+[[proxies]]
+name = "dev.frontend" # 仅示例
+type = "http"
+localIP = "127.0.0.1"
+localPort = 3000 #前端
+subdomain = "dev"
+locations = ["/"]
+
+[[proxies]]
+name = "dev.backend" # 仅示例
+type = "http"
+localIP = "127.0.0.1"
+localPort = 8098 #后端
+subdomain = "dev" # 对应服务端的二级域名，如：dev.test.com
+locations = ["/api", "/wechat", "/dashboard", "/auth"] # 路由前缀
