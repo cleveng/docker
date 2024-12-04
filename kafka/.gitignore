@@ -1,5 +1,3 @@
-zookeeper_data/*
-kafka_data/*
+db/*
 
-!zookeeper_data
-!kafka_data
+!db
