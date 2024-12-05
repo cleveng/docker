@@ -2,6 +2,7 @@ services:
   # https://github.com/bitnami/containers/blob/main/bitnami/kafka/docker-compose.yml
   kafka:
     image: bitnami/kafka:latest
+    restart: always
     ports:
       - "9092:9092"
     environment:
