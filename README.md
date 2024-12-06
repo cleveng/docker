@@ -19,3 +19,14 @@ edit `${home}/.docker/config.json`
 ### database config for mysql,mssql,redis,mongo,postgresql
 username: root
 password: secret
+
+### git proxy
+git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
+git config --global http.proxy http://username:password@proxyserver:port
+git config --global https.proxy https://username:password@proxyserver:port
+
+git config --global --list
+
+export HTTP_PROXY=http://username:password@proxyserver:port
+export HTTPS_PROXY=http://username:password@proxyserver:port
