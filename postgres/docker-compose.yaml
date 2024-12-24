@@ -10,3 +10,7 @@ services:
       - POSTGRES_PASSWORD=secret
       - POSTGRES_USER=homestead
       - POSTGRES_DB=homestead
+
+# psql -h localhost -p 5432 -U homestead
+
+# CREATE DATABASE **;

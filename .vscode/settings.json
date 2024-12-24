@@ -1,5 +1,7 @@
 {
     "cSpell.words": [
-        "bitnami"
+        "bitnami",
+        "healthcheck",
+        "sqlcmd"
     ]
 }

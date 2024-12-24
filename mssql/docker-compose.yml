@@ -1,14 +1,25 @@
 services:
   db:
-    image: mcr.microsoft.com/mssql/server:2017-latest
-    restart: no
+    container_name: mssql
+    restart: always
+    image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
-      ACCEPT_EULA: 'Y'
-      SA_PASSWORD: 'MssqlPass123'
-      MSSQL_AGENT_ENABLED: 'true'
-      MSSQL_USER: 'SA'
-      MSSQL_PID: 'Developer'
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=MyStrong!Pass987
+      - MSSQL_PID=Developer
+      - MSSQL_LOGGING=verbose
+      - MSSQL_USER=SA
+      - MSSQL_AGENT_ENABLED=true
     ports:
-      - 1433:1433
+      - "1443:1433"
     volumes:
-      - ./db:/var/opt/mssql
+      - ./data:/var/opt/mssql/data
+      - ./backup:/backup
+
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-S", "localhost", "-U", "SA", "-P", "MyStrong!Pass987", "-Q", "SELECT 1"]
+      interval: 10s                # 健康检查间隔
+      timeout: 5s                  # 超时时间
+      retries: 3                   # 最大重试次数
+
+# CREATE DATABASE [homestead]; #创建数据库
