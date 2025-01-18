@@ -1,6 +1,7 @@
 services:
   # https://github.com/bitnami/containers/blob/main/bitnami/kafka/docker-compose.yml
   kafka:
+    container_name: kafka
     image: bitnami/kafka:latest
     restart: always
     ports:
@@ -19,5 +20,21 @@ services:
       - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
       - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=PLAINTEXT
+
+      # Enable auto-create topics
+      - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
+      - KAFKA_LOG_RETENTION_BYTES=5737418240 # 5 GB (单位: 字节)
     volumes:
       - "./db:/bitnami"
+
+  kafka-ui:
+    container_name: kafka-ui
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - 9003:8080
+    environment:
+      DYNAMIC_CONFIG_ENABLED: "true"
+    volumes:
+      - ./kui/config.yml:/etc/kafkaui/dynamic_config.yaml
+    depends_on:
+      - kafka
