@@ -10,6 +10,18 @@ pg_dump -U username -d dbname -O --no-acl --no-owner -f backup_file.sql
 psql -U username -d dbname -f backup_file.sql
 ```
 
+## 备份单/多表
+
+```bash
+pg_dump -U username -d dbname -O --no-acl --no-owner -t table1 -t table2 -f backup_tables.sql
+```
+
+## 还原单/多表
+
+```bash
+psql -U username -d dbname -f backup_tables.sql
+```
+
 ## 还原时重置序列[单表]
 
 ```bash
