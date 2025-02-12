@@ -1,4 +1,4 @@
-#### conf.d
+# conf.d
 
 ```bash
 server {
@@ -28,9 +28,9 @@ server {
 }
 ```
 
-#### etc/hosts
+## etc/hosts
 
-```
+```txt
 # 本地开发项目地址
 127.0.0.1 dev.local
 
