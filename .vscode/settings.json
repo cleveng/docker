@@ -4,6 +4,7 @@
         "bitnami",
         "healthcheck",
         "maxmemory",
+        "mosquitto",
         "nssm",
         "sqlcmd"
     ]
